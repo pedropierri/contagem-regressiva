@@ -55,7 +55,7 @@ h2 {
     height: 300px;
 }
 
-#contagem {
+#section-contagem {
     height: 150px;
     margin-top: 20px;
     margin-bottom: 100px;
@@ -83,6 +83,10 @@ h2 {
     cursor: pointer;
 }
 
-#progresso {
+.botao-controle:hover {
+    background-color: #6a8e8f;
+}
+
+#div-progresso {
     margin-top: 50px;
 }

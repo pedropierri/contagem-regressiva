@@ -8,20 +8,21 @@
 </head>
 <body>
     <div id="container-hero">
-        <section id="titulo">
+        <section id="section-titulo">
             <h1>Contagem Regressiva</h1>
             <p id="data"></p> <!--aqui vai entrar a data atual com dia, mes, hora, minutos e segundos-->
         </section>
-        <section id="contagem">
+        <section id="section-contagem">
             <p id="qtd-atual">305</p> <!--aqui vai entrar toda a quantidade que falta-->
-            <div id="progresso">
-                <p id="total-cp">Progresso:</p> 
+            <div id="div-progresso">
+                <p id="progresso">Progresso: 0</p> 
             </div>
         </section>
         <section id="controles">
-            <button class="botao-controle" id="acao">Ação</button>
-            <button class="botao-controle" id="desfazer">Desfazer</button>
+            <button class="botao-controle" id="acao" onclick="acao()">Ação</button>
+            <button class="botao-controle" id="desfazer" onclick="desfazer()">Desfazer</button>
         </section>  
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
