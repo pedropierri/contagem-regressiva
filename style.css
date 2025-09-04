@@ -40,7 +40,8 @@ h1, h2, h3, p {
 }
 
 h1 {
-    font-size: 85px;
+    font-size: 75px;
+    font-weight: 400;
 }
 
 h2 {
@@ -48,12 +49,16 @@ h2 {
 }
 
 #qtd-atual {
+    margin-top: 100px;
     font-size: 250px;
+    font-weight: 200;
     height: 300px;
 }
 
 #contagem {
-    height: 250px;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 100px;
 
     display: flex;
     flex-flow: column;
@@ -76,4 +81,8 @@ h2 {
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+#progresso {
+    margin-top: 50px;
 }
