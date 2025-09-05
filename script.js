@@ -18,8 +18,10 @@ function desfazer() {
     let qtdNova = null
     qtdNova = Number(qtdAtual.textContent) + 1
     qtdAtual.textContent = qtdNova
-    valorProgresso--
-    
+    if (progresso.textContent >= 0) {
+        --valorProgresso
+    }
+
     acaoProgresso(valorProgresso)
 }
 
