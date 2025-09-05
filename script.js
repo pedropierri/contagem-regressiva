@@ -3,11 +3,9 @@ let progresso = document.querySelector("#progresso");
 const botaoAcao = document.querySelector("#acao");
 const botaoDesfazer = document.querySelector("#desfazer");
 
-// Chaves para o localStorage
 const CHAVE_QTD = 'qtdSalva';
 const CHAVE_PROGRESSO = 'progressoSalvo';
 
-// Carrega os dados salvos quando a página inicia
 const valorSalvoQtd = localStorage.getItem(CHAVE_QTD);
 const valorSalvoProgresso = localStorage.getItem(CHAVE_PROGRESSO);
 
@@ -16,7 +14,6 @@ if (valorSalvoQtd !== null && valorSalvoProgresso !== null) {
     progresso.textContent = `Progresso: ${valorSalvoProgresso}`;
 }
 
-// O valor inicial do progresso deve ser lido do localStorage, ou ser 0 se não houver
 let valorProgresso = Number(valorSalvoProgresso || 0);
 
 function acao() {
@@ -26,14 +23,12 @@ function acao() {
     qtdAtual.textContent = qtdNova;
     progresso.textContent = `Progresso: ${valorProgresso}`;
 
-    // Salva os novos valores
     localStorage.setItem(CHAVE_QTD, qtdNova);
     localStorage.setItem(CHAVE_PROGRESSO, valorProgresso);
 }
 
 function desfazer() {
     let qtdNova = Number(qtdAtual.textContent) + 1;
-    // Garante que o valor não seja negativo
     if (valorProgresso > 0) {
         valorProgresso--;
     }
@@ -41,8 +36,6 @@ function desfazer() {
     qtdAtual.textContent = qtdNova;
     progresso.textContent = `Progresso: ${valorProgresso}`;
 
-    // Salva os novos valores
     localStorage.setItem(CHAVE_QTD, qtdNova);
     localStorage.setItem(CHAVE_PROGRESSO, valorProgresso);
 }
-    

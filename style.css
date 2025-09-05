@@ -91,3 +91,21 @@ h2 {
 #div-progresso {
     margin-top: 50px;
 }
+
+#title-settings {
+
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 50px;
+}
+
+#settings-icon {
+    margin: 15px;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: end;
+    
+    cursor: pointer;
+}
