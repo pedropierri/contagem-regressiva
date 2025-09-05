@@ -23,7 +23,7 @@ body {
     background-color: var(--secondary-color);
 }
 
-h1, h2, h3, p {
+h1, h2, h3, h4, p {
     margin: 0px;
     padding: 0px;
     color: white;
@@ -108,4 +108,36 @@ h2 {
     justify-content: end;
     
     cursor: pointer;
+}
+
+#settings-tela {
+    height: auto;
+    position: fixed;
+    padding: 10px;
+
+    background-color: white;
+    width: 350px;
+}
+
+#settings-tela p,
+#settings-tela h3,
+#settings-tela h4 {
+    color: black;
+}
+
+#settings-tela h4 {
+    margin-top: 20px;
+}
+
+#settings-tela p {
+    font-size: 14px;
+}
+
+#referencias {
+    display: flex;
+    flex-flow: column;
+}
+
+.escondido {
+    display: none;
 }

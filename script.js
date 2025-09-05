@@ -2,12 +2,17 @@ let qtdAtual = document.querySelector("#qtd-atual");
 let progresso = document.querySelector("#progresso");
 const botaoAcao = document.querySelector("#acao");
 const botaoDesfazer = document.querySelector("#desfazer");
-
+const configPagina = document.querySelector("#settings-tela")
+const configBotao = document.querySelector("#settings-icon")
 const CHAVE_QTD = 'qtdSalva';
 const CHAVE_PROGRESSO = 'progressoSalvo';
 
 const valorSalvoQtd = localStorage.getItem(CHAVE_QTD);
 const valorSalvoProgresso = localStorage.getItem(CHAVE_PROGRESSO);
+
+configBotao.addEventListener('click', () => {
+    configPagina.classList.toggle("escondido")
+})
 
 if (valorSalvoQtd !== null && valorSalvoProgresso !== null) {
     qtdAtual.textContent = valorSalvoQtd;
