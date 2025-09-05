@@ -2,22 +2,27 @@ let qtdAtual = document.querySelector("#qtd-atual")
 let progresso = document.querySelector("#progresso")
 const botaoAcao = document.querySelector("#acao")
 const botaoDesfazer = document.querySelector("#desfazer")
+let valorProgresso = Number(0)
 
 function acao() {
     let qtdNova = null
 
     qtdNova = Number(qtdAtual.textContent) - 1
     qtdAtual.textContent = qtdNova
+    valorProgresso++ 
 
-    acaoProgresso()
+    acaoProgresso(valorProgresso)
 }
 
 function desfazer() {
     let qtdNova = null
     qtdNova = Number(qtdAtual.textContent) + 1
     qtdAtual.textContent = qtdNova
+    valorProgresso--
+    
+    acaoProgresso(valorProgresso)
 }
 
-function acaoProgresso() {
-    let valorProgresso = null
+function acaoProgresso(valorProgresso) {
+    progresso.textContent = `Progresso = ${valorProgresso}`
 }
