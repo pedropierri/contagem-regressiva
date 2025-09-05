@@ -1,30 +1,48 @@
-let qtdAtual = document.querySelector("#qtd-atual")
-let progresso = document.querySelector("#progresso")
-const botaoAcao = document.querySelector("#acao")
-const botaoDesfazer = document.querySelector("#desfazer")
-let valorProgresso = Number(0)
+let qtdAtual = document.querySelector("#qtd-atual");
+let progresso = document.querySelector("#progresso");
+const botaoAcao = document.querySelector("#acao");
+const botaoDesfazer = document.querySelector("#desfazer");
+
+// Chaves para o localStorage
+const CHAVE_QTD = 'qtdSalva';
+const CHAVE_PROGRESSO = 'progressoSalvo';
+
+// Carrega os dados salvos quando a página inicia
+const valorSalvoQtd = localStorage.getItem(CHAVE_QTD);
+const valorSalvoProgresso = localStorage.getItem(CHAVE_PROGRESSO);
+
+if (valorSalvoQtd !== null && valorSalvoProgresso !== null) {
+    qtdAtual.textContent = valorSalvoQtd;
+    progresso.textContent = `Progresso: ${valorSalvoProgresso}`;
+}
+
+// O valor inicial do progresso deve ser lido do localStorage, ou ser 0 se não houver
+let valorProgresso = Number(valorSalvoProgresso || 0);
 
 function acao() {
-    let qtdNova = null
+    let qtdNova = Number(qtdAtual.textContent) - 1;
+    valorProgresso++; 
 
-    qtdNova = Number(qtdAtual.textContent) - 1
-    qtdAtual.textContent = qtdNova
-    valorProgresso++ 
+    qtdAtual.textContent = qtdNova;
+    progresso.textContent = `Progresso: ${valorProgresso}`;
 
-    acaoProgresso(valorProgresso)
+    // Salva os novos valores
+    localStorage.setItem(CHAVE_QTD, qtdNova);
+    localStorage.setItem(CHAVE_PROGRESSO, valorProgresso);
 }
 
 function desfazer() {
-    let qtdNova = null
-    qtdNova = Number(qtdAtual.textContent) + 1
-    qtdAtual.textContent = qtdNova
-    if (progresso.textContent >= 0) {
-        --valorProgresso
+    let qtdNova = Number(qtdAtual.textContent) + 1;
+    // Garante que o valor não seja negativo
+    if (valorProgresso > 0) {
+        valorProgresso--;
     }
 
-    acaoProgresso(valorProgresso)
-}
+    qtdAtual.textContent = qtdNova;
+    progresso.textContent = `Progresso: ${valorProgresso}`;
 
-function acaoProgresso(valorProgresso) {
-    progresso.textContent = `Progresso = ${valorProgresso}`
+    // Salva os novos valores
+    localStorage.setItem(CHAVE_QTD, qtdNova);
+    localStorage.setItem(CHAVE_PROGRESSO, valorProgresso);
 }
+    
