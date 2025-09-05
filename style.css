@@ -9,6 +9,7 @@
 :root {
   --primary-color: #6a8e8f;
   --secondary-color: #f05e76;
+  --secondary-color: #d7556a;
 
   --background-color: #f6f6f6;
   --surface-color: #ffffff;
@@ -23,6 +24,8 @@ body {
 }
 
 h1, h2, h3, p {
+    margin: 0px;
+    padding: 0px;
     color: white;
     font-family: var(--title-font);
 }
@@ -38,7 +41,8 @@ h1, h2, h3, p {
 }
 
 h1 {
-    font-size: 100px;
+    font-size: 75px;
+    font-weight: 400;
 }
 
 h2 {
@@ -46,5 +50,44 @@ h2 {
 }
 
 #qtd-atual {
-    font-size: 300px;
+    margin-top: 100px;
+    font-size: 250px;
+    font-weight: 200;
+    height: 300px;
+}
+
+#section-contagem {
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#controles {
+    margin-top: 100px;
+
+    display: flex;
+    gap: 50px;
+}
+
+.botao-controle {
+    width: 150px;
+    height: 50px;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.botao-controle:hover {
+    background-color: #6a8e8f;
+}
+
+#div-progresso {
+    margin-top: 50px;
 }
