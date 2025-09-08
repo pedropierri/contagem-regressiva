@@ -9,34 +9,36 @@
 <body>
     <section id="settings-section">
         <img src="media/settings-icon.png" alt="icon settings" id="settings-icon">
-        <div id="settings-tela" class="escondido">
-            <h3>Configurações</h3>
-            <div id="referencias">
-                <h4>Referências</h3>
-                <p>Número Inicial: <input type="number" id="numero-inicial"></p> <!--usuário pode personalizar em qual número vai começar-->
-                <p>Passo da ação: <input type="number" id="passo-"></p> <!--passo/step/de quantos em quantos-->
-
-            </div>
-        </div>
     </section>
-    <div id="container-hero">
-        <section id="section-titulo">
-            <div id="title-settings">
-                <h1>Contagem Regressiva</h1><a href=""></a>
-            </div>
-            <p id="data"></p> <!--aqui vai entrar a data atual com dia, mes, hora, minutos e segundos-->
-        </section>
-        <section id="section-contagem">
-            <p id="qtd-atual"></p> <!--aqui vai entrar toda a quantidade que falta-->
-            <div id="div-progresso">
-                <p id="progresso">Progresso = 0</p> 
-            </div>
-        </section>
-        <section id="controles">
-            <button class="botao-controle" id="acao" onclick="acao()">Ação</button>
-            <button class="botao-controle" id="desfazer" onclick="desfazer()">Desfazer</button>
-        </section>  
+    <div id="container-principal">
+        <div id="container-hero">
+            <section id="section-titulo">
+                <h1>Contagem Regressiva</h1>
+                <p id="data"></p>
+                </section>
+                <section id="section-contagem">
+                <p id="qtd-atual"></p>
+                 <div id="div-progresso">
+                     <p id="progresso">Progresso = 0</p> 
+                </div>
+            </section>
+            <section id="controles">
+                <button class="botao-controle" id="acao">Ação</button>
+                <button class="botao-controle" id="desfazer">Desfazer</button>      
+            </section>
+        </div>
     </div>
+
+    <div id="settings-tela" class="escondido">
+    <h3>Configurações</h3>
+        <div id="referencias">
+            <p>Número Inicial: <input type="number" id="numero-inicial"></p>
+            <p>Passo da Ação: <input type="number" id="passo-acao"></p>
+            <p>Nome da ação: <input type="text" id="nome-acao"></p>
+        </div>
+        <button id="salvar">Salvar Configurações</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
