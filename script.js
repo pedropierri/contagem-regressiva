@@ -11,7 +11,7 @@ const inputPasso = document.querySelector("#passo-acao");
 const botaoSalvar = document.querySelector("#salvar");
 
 // Chaves para o localStorage
-const NOME_ACAO = 'NomeAcao'
+const CHAVE_NOME_ACAO = 'NomeAcao'
 const CHAVE_QTD = 'qtdSalva';
 const CHAVE_PROGRESSO = 'progressoSalvo';
 const CHAVE_NUMERO_INICIAL = 'numeroInicial';
@@ -23,8 +23,8 @@ botaoDesfazer.addEventListener('click', desfazer);
 configBotao.addEventListener('click', toggleConfig);
 botaoSalvar.addEventListener('click', salvarConfig);
 
-// Carrega os dados salvos quando a página inicia   
-const nomeAcaoSalvo = localStorage.getItem(NOME_ACAO)
+// Carrega os dados salvos quando a página inicia  
+const nomeAcaoSalvo = localStorage.getItem(CHAVE_NOME_ACAO)
 const valorSalvoQtd = localStorage.getItem(CHAVE_QTD);
 const valorInicialSalvo = localStorage.getItem(CHAVE_NUMERO_INICIAL);
 const passoSalvo = localStorage.getItem(CHAVE_PASSO);
@@ -37,6 +37,7 @@ let valorPasso = Number(passoSalvo || 1);
 // Atualiza a tela com os valores iniciais
 qtdAtual.textContent = valorContagem;
 progresso.textContent = `Progresso = ${valorProgresso}`;
+botaoAcao.textContent = `${nomeAcaoSalvo}`
 
 
 // Funções de Ação e Configuração
@@ -68,13 +69,14 @@ function toggleConfig() {
     // Carrega os valores nos inputs quando a tela de config é aberta
     inputNumeroInicial.value = Number(localStorage.getItem(CHAVE_NUMERO_INICIAL) || 100);
     inputPasso.value = Number(localStorage.getItem(CHAVE_PASSO) || 1);
+    nomeAcao.value= `${nomeAcaoSalvo}` || 'Ação'
 }
 
 function salvarConfig() {
     // Salva os novos valores no localStorage
     localStorage.setItem(CHAVE_NUMERO_INICIAL, inputNumeroInicial.value);
     localStorage.setItem(CHAVE_PASSO, inputPasso.value);
-    localStorage.setItem(NOME_ACAO, nomeAcao.textContent)
+    localStorage.setItem(CHAVE_NOME_ACAO, nomeAcao.value)
     
     // Esconde a tela de configurações
     configPagina.classList.toggle("escondido");
@@ -83,8 +85,7 @@ function salvarConfig() {
     valorContagem = Number(inputNumeroInicial.value);
     valorProgresso = 0;
     valorPasso = Number(inputPasso.value);
-    botaoAcao.textContent = nomeAcao.value
-    console.log(nomeAcao)
+    botaoAcao.textContent = nomeAcao.value || 'Ação'
     
     localStorage.setItem(CHAVE_QTD, valorContagem);
     localStorage.setItem(CHAVE_PROGRESSO, valorProgresso);
