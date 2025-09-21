@@ -27,11 +27,19 @@ h1, h2, h3, h4, p {
     font-family: var(--title-font);
 }
 
+#container-principal {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #container-hero {
     margin: 50px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
